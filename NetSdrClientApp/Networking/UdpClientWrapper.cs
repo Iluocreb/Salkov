@@ -61,16 +61,7 @@ public class UdpClientWrapper : IUdpClient
 
     public void Exit()
     {
-        try
-        {
-            _cts?.Cancel();
-            _udpClient?.Close();
-            Console.WriteLine("Stopped listening for UDP messages.");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error while stopping: {ex.Message}");
-        }
+        StopListening();
     }
 
     public override int GetHashCode()
